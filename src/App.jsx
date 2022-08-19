@@ -21,6 +21,7 @@ import {Sidebar} from "./components/AdminDashboard/Sidebar";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import {Products} from "./components/AdminDashboard/Products.jsx";
+import {ProductPage} from "./components/ProductPage/ProductPage";
 function App() {
 
     const [CartItem, setCartItem] = useState([])
@@ -93,6 +94,11 @@ function App() {
                             <Orders/>
                         </div>
                     </div>
+                </Route>
+
+                <Route path = {"/product/:id"}>
+                    <Header CartItem={CartItem} />
+                    <ProductPage/>
                 </Route>
 
                 <Route path={"/products"}>
