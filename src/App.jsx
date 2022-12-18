@@ -23,6 +23,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import {Products} from "./components/AdminDashboard/Products.jsx";
 function App() {
 
+
     const [CartItem, setCartItem] = useState([])
   const {productItems} = Data;
   const {shopItems} = Sdata;
@@ -32,8 +33,6 @@ function App() {
         if (productExit) {
             setCartItem(CartItem.map((item) => (item.id === product.id ? { ...productExit, qty: productExit.qty + 1 } : item)))
         } else {
-            // but if the product doesnt exit in the cart that mean if card is empty
-            // then new product is added in cart  and its qty is initalize to 1
             setCartItem([...CartItem, { ...product, qty: 1 }])
         }
     }

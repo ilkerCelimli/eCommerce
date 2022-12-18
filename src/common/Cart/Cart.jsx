@@ -4,6 +4,7 @@ import {sellProductModel} from "../../models/SellProductModel.js";
 
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart as add} from "../../store/cart/CartReducer.js";
+import {useHistory} from "react-router-dom";
 
 
 const Cart = ({ CartItem, addToCart, decreaseQty }) => {
@@ -11,7 +12,7 @@ const Cart = ({ CartItem, addToCart, decreaseQty }) => {
   const selector = useSelector(state => state.auth);
   const dispatch = useDispatch();
   const [model,setModel] = useState([])
-   // const history = useHistory();
+    const history = useHistory();
   const  handlePayment = (location, state) =>  {
    return CartItem.map(i => {
 
@@ -58,9 +59,7 @@ const Cart = ({ CartItem, addToCart, decreaseQty }) => {
                         <i className='fa-solid fa-xmark'></i>
                       </button>
                     </div>
-                    {/* stpe: 5 
-                    product ko qty lai inc ra des garne
-                    */}
+
                     <div className='cartControl d_flex'>
                       <button className='incCart' onClick={() => addToCart(item)}>
                         <i className='fa-solid fa-plus'></i>
@@ -85,7 +84,7 @@ const Cart = ({ CartItem, addToCart, decreaseQty }) => {
             </div>
 
               <button className={"btn-primary"} onClick={() => {
-                handlePayment(); // history.push("/payment")
+                handlePayment();  history.push("/payment")
               }}> Ödeme ekranı </button>
 
           </div>

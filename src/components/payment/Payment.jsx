@@ -6,7 +6,7 @@ import {sellProductModel} from "../../models/SellProductModel.js";
 import {AdresServices} from "../../services/AdresServices.js";
 import {useHistory} from "react-router-dom";
 export const Payment = () => {
-   // const history = useHistory();
+    const history = useHistory();
     const {register, handleSubmit, errors} = useForm();
     const carts = useSelector(state => state.cart);
     const [cities, setCities] = useState([]);
@@ -97,7 +97,7 @@ return (
                     </div>
                     <div className="btns">
                         <button type={"submit"}>Satın al</button>
-                        <button onClick={{/*() => history.push("/cart")*/}}>Sepete geri dön</button>
+                        <button onClick={() => history.push("/cart")}>Sepete geri dön</button>
                     </div>
                 </form>
             </div>
